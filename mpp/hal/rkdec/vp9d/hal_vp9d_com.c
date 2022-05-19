@@ -838,6 +838,7 @@ static const RK_U8 vp9_default_coef_probs[4][2][2][6][6][3] = {
     }
 };
 
+/* // KevinJ removed the definition from .c file to prevent duplicate definition between STATIC (.a) files
 const vp9_prob vp9_kf_y_mode_prob[INTRA_MODES][INTRA_MODES][INTRA_MODES - 1] = {
     {
         // above = dc
@@ -988,6 +989,7 @@ const vp9_prob vp9_kf_partition_probs[PARTITION_CONTEXTS][PARTITION_TYPES - 1] =
     {  57,  15,   9 },  // l split, a not split
     {  12,   3,   3 },  // a/l both split
 };
+*/
 
 RK_U32 vp9_ver_align(RK_U32 val)
 {
