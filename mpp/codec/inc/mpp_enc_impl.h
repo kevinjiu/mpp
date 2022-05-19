@@ -64,7 +64,6 @@ typedef struct MppEncImpl_t {
     RK_S32              rc_cfg_updated;
     RcApiBrief          rc_brief;
     RcCtx               rc_ctx;
-    EncRcTask           rc_task;
 
     /*
      * thread input / output context
@@ -81,6 +80,9 @@ typedef struct MppEncImpl_t {
     RK_U32              low_delay_part_mode;
 
     /* base task information */
+    HalTaskGroup        tasks;
+    HalTaskHnd          hnd;
+    EncAsyncTaskInfo    *async;
     RK_U32              task_idx;
     RK_S64              task_pts;
     MppBuffer           frm_buf;

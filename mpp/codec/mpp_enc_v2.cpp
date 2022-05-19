@@ -101,6 +101,7 @@ MPP_RET mpp_enc_init_v2(MppEnc *enc, MppEncInitCfg *cfg)
     p->enc_hal  = enc_hal;
     p->dev      = enc_hal_cfg.dev;
     p->mpp      = cfg->mpp;
+    p->tasks    = enc_hal_cfg.tasks;
     p->sei_mode = MPP_ENC_SEI_MODE_ONE_SEQ;
     p->version_info = get_mpp_version();
     p->version_length = strlen(p->version_info);
@@ -340,6 +341,13 @@ MPP_RET mpp_enc_control_v2(MppEnc ctx, MpiCmd cmd, void *param)
             cfg->prep.rotation == MPP_ENC_ROT_270) {
             MPP_SWAP(RK_S32, cfg->prep.width, cfg->prep.height);
         }
+        /* cleanup output change flag to avoid extra change flag bit when user resend the cfg */
+        cfg->rc.change = 0;
+        cfg->prep.change = 0;
+        cfg->hw.change = 0;
+        cfg->codec.change = 0;
+        cfg->split.change = 0;
+        cfg->tune.change = 0;
     } break;
     case MPP_ENC_GET_PREP_CFG : {
         enc_dbg_ctrl("get prep config\n");
