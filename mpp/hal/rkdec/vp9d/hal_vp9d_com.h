@@ -75,9 +75,11 @@ do{\
         mpp_assert(0); goto __FAILED; \
 }} while (0)
 
+/* // KevinJ removed the extern definition from .h file to prevent duplicate definition between STATIC (.a) files
 extern const vp9_prob vp9_kf_y_mode_prob[INTRA_MODES][INTRA_MODES][INTRA_MODES - 1];
 extern const vp9_prob vp9_kf_uv_mode_prob[INTRA_MODES][INTRA_MODES - 1];
 extern const vp9_prob vp9_kf_partition_probs[PARTITION_CONTEXTS][PARTITION_TYPES - 1];
+*/
 
 #ifdef __cplusplus
 extern "C" {
