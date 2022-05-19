@@ -29,7 +29,7 @@
 #include "mpp_enc_cfg_impl.h"
 #include "mpp_enc_impl.h"
 
-RK_U32 _mpp_enc_debug = 0;  // KevinJ changed mpp_enc_debug -> _mpp_enc_debug to solve multiple definition issue
+RK_U32 mpp_enc_debug = 0;
 
 MPP_RET mpp_enc_init_v2(MppEnc *enc, MppEncInitCfg *cfg)
 {
@@ -41,7 +41,7 @@ MPP_RET mpp_enc_init_v2(MppEnc *enc, MppEncInitCfg *cfg)
     MppEncHalCfg enc_hal_cfg;
     EncImplCfg ctrl_cfg;
 
-    mpp_env_get_u32("mpp_enc_debug", &_mpp_enc_debug, 0);   // KevinJ mpp_enc_debug -> _mpp_enc_debug
+    mpp_env_get_u32("mpp_enc_debug", &mpp_enc_debug, 0);
 
     if (NULL == enc) {
         mpp_err_f("failed to malloc context\n");
