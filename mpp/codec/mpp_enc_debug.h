@@ -29,8 +29,8 @@
 
 #define MPP_ENC_DBG_FRM_STATUS          (0x00010000)
 
-#define mpp_enc_dbg(flag, fmt, ...)     _mpp_dbg(mpp_enc_debug, flag, fmt, ## __VA_ARGS__)
-#define mpp_enc_dbg_f(flag, fmt, ...)   _mpp_dbg_f(mpp_enc_debug, flag, fmt, ## __VA_ARGS__)
+#define mpp_enc_dbg(flag, fmt, ...)     _mpp_dbg(_mpp_enc_debug, flag, fmt, ## __VA_ARGS__)
+#define mpp_enc_dbg_f(flag, fmt, ...)   _mpp_dbg_f(_mpp_enc_debug, flag, fmt, ## __VA_ARGS__)
 
 #define enc_dbg_func(fmt, ...)          mpp_enc_dbg_f(MPP_ENC_DBG_FUNCTION, fmt, ## __VA_ARGS__)
 #define enc_dbg_ctrl(fmt, ...)          mpp_enc_dbg_f(MPP_ENC_DBG_CONTROL, fmt, ## __VA_ARGS__)
@@ -40,6 +40,6 @@
 #define enc_dbg_reenc(fmt, ...)         mpp_enc_dbg_f(MPP_ENC_DBG_REENC, fmt, ## __VA_ARGS__)
 #define enc_dbg_frm_status(fmt, ...)    mpp_enc_dbg_f(MPP_ENC_DBG_FRM_STATUS, fmt, ## __VA_ARGS__)
 
-extern RK_U32 mpp_enc_debug;
+extern RK_U32 _mpp_enc_debug;   // KevinJ changed mpp_enc_debug to _mpp_enc_debug to prevent conflicting with gstreamer_rockchip
 
 #endif /* __MPP_ENC_DEBUG_H__ */
