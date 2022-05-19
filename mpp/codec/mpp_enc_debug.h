@@ -40,6 +40,6 @@
 #define enc_dbg_reenc(fmt, ...)         mpp_enc_dbg_f(MPP_ENC_DBG_REENC, fmt, ## __VA_ARGS__)
 #define enc_dbg_frm_status(fmt, ...)    mpp_enc_dbg_f(MPP_ENC_DBG_FRM_STATUS, fmt, ## __VA_ARGS__)
 
-extern RK_U32 mpp_enc_debug;
+//extern RK_U32 mpp_enc_debug;  // KevinJ removed to solve multiple definition issue.
 
 #endif /* __MPP_ENC_DEBUG_H__ */
